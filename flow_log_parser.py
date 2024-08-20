@@ -45,6 +45,8 @@ class FlowLogParser:
                     protocol = self.PROTOCOLS.get(data[7], 'Unknown')
                     if (data[6], protocol) in self.lookups:
                         self.matches_tag[self.lookups[(data[6], protocol)]] += 1
+                    elif (data[6], protocol.upper()) in self.lookups:
+                        self.matches_tag[self.lookups[(data[6], protocol.upper())]] += 1
                     else:
                         self.matches_tag['Untagged'] += 1
 
@@ -80,7 +82,7 @@ class FlowLogParser:
             raise
 
 if __name__ == '__main__':
-    parser = FlowLogParser('tests/flow_logs.txt', 'tests/lookup_table.csv')
+    parser = FlowLogParser('flow_logs.txt', 'lookup_table.csv')
     parser.parse_lookup_table()
     parser.parse_flow_logs()
     parser.output_results()
