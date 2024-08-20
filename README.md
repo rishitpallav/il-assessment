@@ -33,6 +33,11 @@ The tests folder currently has 2 different test sets:
 
 Please make sure to modify any test cases as needed. But make sure to also modify the corresponding output test file: matches_port_protocol.txt and matches_tag.txt.
 
+### Test Cases
+There are 2 sets of test cases:
+1. Covers the testcases mentioned in the email. Altough, the email sample output is different, the output here indicates the original output.
+2. Covers all the other edge cases. Including case insensitivity, multiple matches, no matches, etc.
+
 ### Assumptions
 1. The flow logs do not have any headers.
 2. The lookup table does not have headers.
