@@ -80,7 +80,7 @@ class FlowLogParser:
             raise
 
 if __name__ == '__main__':
-    parser = FlowLogParser('flow_logs.txt', 'lookup_table.csv')
+    parser = FlowLogParser('tests/flow_logs.txt', 'tests/lookup_table.csv')
     parser.parse_lookup_table()
     parser.parse_flow_logs()
     parser.output_results()
