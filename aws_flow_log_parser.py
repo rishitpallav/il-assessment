@@ -41,8 +41,20 @@ def parse_flow_logs(lookups, matches_tag):
     
     return matches_tag, matches_port_protocol
 
+def output_results(matches_tag, matches_port_protocol):
+    matches_tag_file = open('matches_tag.txt', 'w')
+    matches_tag_file.write('Tag,Count\n')
+    for key, value in matches_tag.items():
+        matches_tag_file.write(key + ',' + str(value) + '\n')
+    matches_tag_file.close()
+        
+    matches_port_protocol_file = open('matches_port_protocol.txt', 'w')
+    matches_port_protocol_file.write('Port,Protocol,Count\n')
+    for key, value in matches_port_protocol.items():
+        matches_port_protocol_file.write(str(key[0])+ ',' + str(key[1]) + ',' + str(value) + '\n')
+    matches_port_protocol_file.close()
+
 lookups, matches_tag = parse_lookup_table()
 matches_tag, matches_port_protocol = parse_flow_logs(lookups, matches_tag)
 
-print(matches_tag)
-print(matches_port_protocol)
+output_results(matches_tag, matches_port_protocol)
