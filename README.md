@@ -47,5 +47,6 @@ There are 2 sets of test cases:
 6. We are only comparing Destination Ports and not care about source ports.
 7. The end of the output files has a newline character.
 8. The Protocols used are: TCP, UDP, ICMP, IGMP, ESP, AH, SCTP, GRE.
+9. The tag names are case sensitive. Even though the protocol names are case insensitive, the tag names are case sensitive.
 
 ### Thank you
